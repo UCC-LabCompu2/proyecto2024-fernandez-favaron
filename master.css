@@ -62,7 +62,6 @@ article {
     justify-content: center;
     margin: 2em 1em;
     border: 2em 1em;
-    border-color: black;
 }
 
 .imga {
@@ -126,10 +125,71 @@ form {
 }
 
 textarea {
-    width: 900px;
+    display: block;
+    width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+    height: 5em;
     box-sizing: border-box;
 }
 
 #teniaqueusarasi {
     font-size: 5em;
 }
+.pc {
+
+    content-visibility: show;
+}
+
+.mobile{
+    content-visibility: hidden;
+}
+@media (max-width: 1024px) {
+    textarea {
+        display: block;
+        width: 180%;
+        margin-left: -40%;
+        margin-right: 0%;
+        height: 8em;
+    }
+    article {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 2em 1em;
+        border: 2em 1em;
+    }
+    .pc {
+
+        content-visibility: hidden;
+    }
+    
+    .mobile{
+        content-visibility: show;
+    }
+    .imga {
+        float: center;
+        border-radius: 4em;
+        width: 100%;
+    }
+    
+    .imgc {
+        float: center;
+        border-radius: 4em;
+        width: 95%;
+    }
+    section {
+        background-color: rgb(255, 205, 0);
+        margin: -2em 10%;
+    }
+    header {
+        background-color: rgb(255, 205, 0);
+        margin: -2.5em 10%;
+    }
+    .f {
+        background-color: rgb(255, 205, 0);
+        margin: -2.7em 10%;
+    }
+}
+
