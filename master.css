@@ -2,16 +2,55 @@ body{
     margin: 0em 8em;
 }
 
+
+
+h1{
+    font-size: 4em;
+    font-style: oblique;
+}
+
+header{
+    background-color: rgb(255, 205, 0);
+    margin: -1em 0em;
+}
+
 article{
-    column-count: 2;
-    column-width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2em 1em;
+    border: 2em 1em;
+    border-color: black;
+}
+
+.imga{
+    float:right;
+    border-radius: 4em;
+    width: 48em;
 }
 
 .imgc{
+    float: left;
     border-radius: 4em;
-    width: 36ññem;
+    width: 38em;
 }
 
 .central{
+    font-family: "Roboto", sans-serif;
     text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+}
+
+.floaty{    
+    float:right;
+}
+.floatyl{    
+    float:left;
+}
+
+section{
+    background-color: rgb(255, 205, 0);
+    margin: 0em 0em;
 }
