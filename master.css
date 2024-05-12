@@ -53,7 +53,7 @@ h2 {
 
 header {
     background-color: rgb(255, 205, 0);
-    margin: -2.5em 8em;
+    margin: -2.5em 10%;
 }
 
 article {
@@ -95,7 +95,7 @@ article {
 
 section {
     background-color: rgb(255, 205, 0);
-    margin: -2em 8em;
+    margin: -2em 10%;
 }
 
 .pie {
