@@ -1,0 +1,17 @@
+body{
+    margin: 0em 8em;
+}
+
+article{
+    column-count: 2;
+    column-width: auto;
+}
+
+.imgc{
+    border-radius: 4em;
+    width: 36ññem;
+}
+
+.central{
+    text-align: center;
+}
