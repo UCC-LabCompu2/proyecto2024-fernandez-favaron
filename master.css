@@ -34,7 +34,7 @@ h1 {
 
 h2 {
     font-size: 2em;
-    font-style: italic
+    font-style: bold;
 }
 
 .em1 {
@@ -65,6 +65,7 @@ article {
     float: left;
     border-radius: 4em;
     width: 38em;
+    border: 1em #262525;
 }
 
 .central {
@@ -85,5 +86,20 @@ article {
 
 section {
     background-color: rgb(255, 205, 0);
-    margin: 0em 8em;
+    margin: -2em 8em;
+}
+
+.pie {
+    padding: 20px;
+    background-color: #262525;
+    color: white;
+}
+
+
+.here {
+    font-style: oblique;
+    font-weight: 900;
+    text-align: justify;
+    margin: 2em 12em;
+    padding: 0em 10em;
 }
