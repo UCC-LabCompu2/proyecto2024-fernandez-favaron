@@ -147,8 +147,8 @@ textarea {
 @media (max-width: 1024px) {
     textarea {
         display: block;
-        width: 180%;
-        margin-left: -40%;
+        width: 160%;
+        margin-left: -30%;
         margin-right: 0%;
         height: 8em;
     }
@@ -191,5 +191,15 @@ textarea {
         background-color: rgb(255, 205, 0);
         margin: -2.7em 10%;
     }
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 24px 40px;
+        font-size: x-large;
+        text-decoration: none;
+    }
+    
 }
 
