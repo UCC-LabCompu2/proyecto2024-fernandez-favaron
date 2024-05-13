@@ -114,14 +114,21 @@ section {
 }
 
 form {
-    font-size: 20px;
     background-color: rgb(255, 205, 0);
+    font-size: 40px;
     margin: 0em 8em;
     text-align: justify;
 }
 
 .formg {
     margin: 1em;
+    font-size: 20px;
+}
+
+.formi{
+    background-color: rgb(184, 147, 0);
+    font-size: 20px;
+    text-align: justify;
 }
 
 textarea {
@@ -130,6 +137,8 @@ textarea {
     margin-left: auto;
     margin-right: auto;
     height: 5em;
+    font-size: 20px;
+    background-color: rgb(184, 147, 0);
     box-sizing: border-box;
 }
 
@@ -147,9 +156,10 @@ textarea {
 @media (max-width: 1024px) {
     textarea {
         display: block;
-        width: 160%;
-        margin-left: -30%;
+        width: 140%;
+        margin-left: -20%;
         margin-right: 0%;
+        font-size: 40px;
         height: 8em;
     }
     article {
