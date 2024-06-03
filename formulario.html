@@ -24,16 +24,22 @@
         <h1>Formulario para mandar CV</h1>
     </div>
     <section>
-        <form class="central">
+        <form class="central babypad">
             <div class="formg">
                 <label for="input_nombre">Nombre:</label>
-                <input type="text" id="input_nombre" placeholder="Ingrese su Nombre" class="formi" maxlength="24" required>
+                <input type="text" id="input_nombre" placeholder="Ingrese su Nombre" class="formi" size="40" maxlength="24" required>
             </div>
 
             <div class="formg">
                 <label for="input_apellido">Apellido:</label>
-                <input type="text" id="input_apellido" placeholder="Ingrese su Apellido" class="formi" maxlength="24" required>
+                <input type="text" id="input_apellido" placeholder="Ingrese su Apellido" class="formi" size="40" maxlength="24" required>
             </div>
+
+            <div class="formg">
+                <label for="input_email">Email:</label>
+                <input type="email" id="input_email" placeholder="Ingrese su email (opcional)" size="40" class="formi" maxlength="40">
+            </div>
+
             <div class="formg">
                 <p>Genero</p>
                 <input type="radio" name="radioButton_sexo" id="sexoM" value="masculino"
@@ -49,17 +55,12 @@
 
             <div class="formg">
                 <label for="input_edad">Edad:</label>
-                <input type="number" id="input_edad" placeholder="Ingrese su Edad" class="formi" maxlength="2" required>
-            </div>
-
-            <div class="formg">
-                <label for="input_email">Email:</label>
-                <input type="email" id="input_email" placeholder="Ingrese su email (opcional)" class="formi" maxlength="40">
+                <input type="number" id="input_edad" placeholder="Ingrese su Edad" class="formi" size="10" maxlength="2" required>
             </div>
 
             <div class="formg">
                 <label for="input_tel">Telefono:</label>
-                <input type="number" id="input_tel" placeholder="Ingrese su telefono" maxlength="20" class="formi" required>
+                <input type="number" id="input_tel" placeholder="Ingrese su telefono" maxlength="20" size="20" class="formi" required>
             </div>
 
             <div class="formg">
