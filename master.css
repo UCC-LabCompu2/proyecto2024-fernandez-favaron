@@ -93,6 +93,14 @@ article {
     float: left;
 }
 
+.babypad {
+    padding: 5% 0%;
+}
+
+.antipad {
+    padding: 0%;
+}
+
 section {
     background-color: rgb(255, 205, 0);
     margin: -2em 10%;
