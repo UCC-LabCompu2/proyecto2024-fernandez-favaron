@@ -8,82 +8,87 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
     <link rel="icon" href="img/logo.webp" type="image/x-icon">
 </head>
 
 <body>
 
-    <div class="navbar">
-        <a href="index.html">Inicio</a>
-        <a href="equipos.html">Nuestros equipos</a>
-        <a href="formulario.html" class="floaty">Unirse al equipo</a>
-    </div>
-    <div class="f central">
-        <h1>Formulario para mandar CV</h1>
-    </div>
-    <section>
-        <form class="central babypad">
-            <div class="formg">
-                <label for="input_nombre">Nombre:</label>
-                <input type="text" id="input_nombre" placeholder="Ingrese su Nombre" class="formi" size="40" maxlength="24" required>
-            </div>
+<div class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="equipos.html">Nuestros equipos</a>
+    <a href="formulario.html" class="floaty">Unirse al equipo</a>
+</div>
+<div class="f central">
+    <h1>Formulario para mandar CV</h1>
+</div>
+<section>
+    <form class="central babypad">
+        <div class="formg">
+            <label for="input_nombre">Nombre:</label>
+            <input type="text" id="input_nombre" placeholder="Ingrese su Nombre" class="formi" size="40" maxlength="24"
+                   required>
+        </div>
 
-            <div class="formg">
-                <label for="input_apellido">Apellido:</label>
-                <input type="text" id="input_apellido" placeholder="Ingrese su Apellido" class="formi" size="40" maxlength="24" required>
-            </div>
+        <div class="formg">
+            <label for="input_apellido">Apellido:</label>
+            <input type="text" id="input_apellido" placeholder="Ingrese su Apellido" class="formi" size="40"
+                   maxlength="24" required>
+        </div>
 
-            <div class="formg">
-                <label for="input_email">Email:</label>
-                <input type="email" id="input_email" placeholder="Ingrese su email (opcional)" size="40" class="formi" maxlength="40">
-            </div>
+        <div class="formg">
+            <label for="input_email">Email:</label>
+            <input type="email" id="input_email" placeholder="Ingrese su email (opcional)" size="40" class="formi"
+                   maxlength="40">
+        </div>
 
-            <div class="formg">
-                <p>Genero</p>
-                <input type="radio" name="radioButton_sexo" id="sexoM" value="masculino"
-                    checked>
-                <label for="sexoM">Masculino</label>
-            </div>
+        <div class="formg">
+            <p>Genero</p>
+            <input type="radio" name="radioButton_sexo" id="sexoM" value="masculino"
+                   checked>
+            <label for="sexoM">Masculino</label>
+        </div>
 
-            <div class="formg">
-                <input type="radio" name="radioButton_sexo" id="sexoF" value="femenino">
-                <label for="sexoF">Femenino</label>
-            </div>
+        <div class="formg">
+            <input type="radio" name="radioButton_sexo" id="sexoF" value="femenino">
+            <label for="sexoF">Femenino</label>
+        </div>
 
 
-            <div class="formg">
-                <label for="input_edad">Edad:</label>
-                <input type="number" id="input_edad" placeholder="Ingrese su Edad" class="formi" size="10" maxlength="2" required>
-            </div>
+        <div class="formg">
+            <label for="input_edad">Edad:</label>
+            <input type="number" id="input_edad" placeholder="Ingrese su Edad" class="formi" size="10" maxlength="2"
+                   required>
+        </div>
 
-            <div class="formg">
-                <label for="input_tel">Teléfono:</label>
-                <input type="number" id="input_tel" placeholder="Ingrese su telefono" maxlength="20" size="20" class="formi" required>
-            </div>
+        <div class="formg">
+            <label for="input_tel">Teléfono:</label>
+            <input type="number" id="input_tel" placeholder="Ingrese su telefono" maxlength="20" size="20" class="formi"
+                   required>
+        </div>
 
-            <div class="formg">
-                <label class="my-1 mr-2" for="input_pos">Posición:</label>
-                <select id="input_pos" class="formi" required>
-                    <option>Maquinista</option>
-                    <option>Aguatero</option>
-                </select>
-            </div>
+        <div class="formg">
+            <label class="my-1 mr-2" for="input_pos">Posición:</label>
+            <select id="input_pos" class="formi" required>
+                <option>Maquinista</option>
+                <option>Aguatero</option>
+            </select>
+        </div>
 
-            <div class="formg">
-                <label for="textarea_xp">Experiencia:</label>
-                <textarea id="textarea_xp" maxlength="240"></textarea>
-            </div>
+        <div class="formg">
+            <label for="textarea_xp">Experiencia:</label>
+            <textarea id="textarea_xp" maxlength="240"></textarea>
+        </div>
 
-            <div class="formg">
-                <label for="CV">Curriculum Vitae (opcional)</label>
-                <input type="file" id="CV" accept=".pdf .png .jpg"></file>
-            </div>
+        <div class="formg">
+            <label for="CV">Curriculum Vitae (opcional)</label>
+            <input type="file" id="CV" accept=".pdf .png .jpg">
+        </div>
 
-            <button type="button" class="em1">Enviar</button>
-        </form>
-    </section>
+        <button type="button" class="em1">Enviar</button>
+    </form>
+</section>
 </body>
 
 </html>

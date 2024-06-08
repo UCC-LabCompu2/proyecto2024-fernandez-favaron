@@ -44,7 +44,7 @@ h1 {
 
 h2 {
     font-size: 2em;
-    font-style: bold;
+    font-weight: bold;
 }
 
 .em1 {
@@ -61,7 +61,7 @@ article {
     align-items: center;
     justify-content: center;
     margin: 2em 1em;
-    border: 2em 1em;
+    border: 2em;
 }
 
 .imga {
@@ -94,11 +94,11 @@ article {
 }
 
 .babypad {
-    padding: 5% 0%;
+    padding: 5% 0;
 }
 
 .antipad {
-    padding: 0%;
+    padding: 0;
 }
 
 section {
@@ -118,13 +118,13 @@ section {
     font-weight: 900;
     text-align: justify;
     margin: 2em 12em;
-    padding: 0em 10em;
+    padding: 0 10em;
 }
 
 form {
     background-color: rgb(255, 205, 0);
     font-size: 40px;
-    margin: 0em 8em;
+    margin: 0 8em;
     text-align: justify;
 }
 
@@ -133,7 +133,7 @@ form {
     font-size: 20px;
 }
 
-.formi{
+.formi {
     background-color: rgb(184, 147, 0);
     font-size: 20px;
     text-align: justify;
@@ -153,62 +153,71 @@ textarea {
 #teniaqueusarasi {
     font-size: 5em;
 }
+
 .pc {
 
-    content-visibility: show;
+    content-visibility: visible;
 }
 
-.mobile{
+.mobile {
     content-visibility: hidden;
 }
+
 @media (max-width: 1024px) {
     textarea {
         display: block;
         width: 140%;
         margin-left: -20%;
-        margin-right: 0%;
+        margin-right: 0;
         font-size: 40px;
         height: 8em;
     }
+
     article {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         margin: 2em 1em;
-        border: 2em 1em;
+        border: 2em;
     }
+
     .pc {
 
         content-visibility: hidden;
     }
-    
-    .mobile{
-        content-visibility: show;
+
+    .mobile {
+        content-visibility: visible;
     }
+
     .imga {
-        float: center;
+        float: unset;
         border-radius: 4em;
         width: 100%;
     }
-    
+
     .imgc {
-        float: center;
+        float: unset;
         border-radius: 4em;
         width: 95%;
     }
+
     section {
         background-color: rgb(255, 205, 0);
         margin: -2em 10%;
     }
+
     header {
         background-color: rgb(255, 205, 0);
         margin: -2.5em 10%;
     }
+
     .f {
         background-color: rgb(255, 205, 0);
         margin: -2.7em 10%;
     }
+
     .navbar a {
         float: left;
         display: block;
@@ -218,6 +227,6 @@ textarea {
         font-size: x-large;
         text-decoration: none;
     }
-    
+
 }
 
