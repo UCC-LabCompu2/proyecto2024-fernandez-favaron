@@ -194,15 +194,6 @@ textarea {
     font-size: 5em;
 }
 
-.pc {
-
-    content-visibility: visible;
-}
-
-.mobile {
-    content-visibility: hidden;
-}
-
 @media (max-width: 1024px) {
     textarea {
         display: block;
@@ -220,15 +211,6 @@ textarea {
         flex-direction: column;
         margin: 2em 1em;
         border: 2em;
-    }
-
-    .pc {
-
-        content-visibility: hidden;
-    }
-
-    .mobile {
-        content-visibility: visible;
     }
 
     .imga {
