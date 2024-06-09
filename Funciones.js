@@ -1,36 +1,44 @@
-const verificar = () => {
+const verificar = async () => {
     let n = ""
     let j = 0
     if (document.getElementById('input_nombre').value.length < 3) {
         document.getElementById('input_nombre').value = n;
         alert("Nombre invalido, tiene que ser mayor a dos letras")
+        document.getElementById('input_nombre').style.backgroundColor = "red";
+
         j = 1;
     }
 
     if (document.getElementById('input_apellido').value.length < 3) {
         document.getElementById('input_apellido').value = n;
         alert("Apellido invalido, tiene que ser mayor a dos letras")
+        document.getElementById('input_apellido').style.backgroundColor = "red";
         j = 1;
     }
     let emailvalido = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (!document.getElementById('input_email').value.match(emailvalido)) {
         document.getElementById('input_email').value = n;
         alert("Email invalido, contiene caracteres invalidos")
+        document.getElementById('input_email').style.backgroundColor = "red";
         j = 1;
     }
 
     if (document.getElementById('input_edad').value < 18) {
         document.getElementById('input_edad').value = n;
         alert("No contratamos menores de edad")
+        document.getElementById('input_edad').style.backgroundColor = "red";
         j = 1;
     }
-    if (document.getElementById('input_tel').length < 4 || !document.getElementById('input_telefono').value.match(/^[0-9]{1,3}[0-9]{1,4}$/)) {
+    if (document.getElementById('input_tel').length < 4 || !document.getElementById('input_tel').value.match(/^[0-9]{1,3}[0-9]{1,4}$/)) {
         document.getElementById('input_tel').value = n;
         alert("Teléfono invalido")
+        document.getElementById('input_tel').style.backgroundColor = "red";
         j = 1;
     }
     if (j === 0) {
         alert("Gracias por completar el formulario correctamente")
+        await esperar(2000);
+        window.location.href = 'index.html';
     }
 
 };
@@ -42,7 +50,7 @@ const carga = async () => {
     ctx.font = "60px Arial";
     ctx.fillStyle = "#fff";
     ctx.textAlign = "center";
-    ctx.fillText("Cargando...", 370, 100, 300);
+    ctx.fillText("Cargando...", 384, 200, 400);
     await esperar(10000); // espera porque si no no cargan los png
     const img = new Image();
     img.src = "img/zero.png";
@@ -54,7 +62,7 @@ const carga = async () => {
 
 const esperar = (tiempo) => new Promise((existo) => setTimeout(existo, tiempo))
 
-let imagen = (a) => {
+const imagen = (a) => {
     let n = parseInt(localStorage.getItem('con')) + a;
     const canvas = document.getElementById("Fumiga");
     const ctx = canvas.getContext("2d");
