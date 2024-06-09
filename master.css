@@ -21,16 +21,37 @@ body {
 }
 
 #left {
+    margin-top: 100px;
     width: 15%;
     height: 15%;
     transform: scaleX(-1);
     float: left;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#fix {
+    height: 20em;
+}
+
+.hidden {
+    visibility: hidden;
+    max-height: 0;
 }
 
 #right {
+    margin-top: 100px;
     width: 15%;
     height: 15%;
-    float: right
+    float: right;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .navbar a {
@@ -52,7 +73,7 @@ body {
 }
 
 .navbar a:hover {
-    background-color: #ddd;
+    background-color: #9269f3;
     color: black;
 }
 
@@ -113,7 +134,7 @@ article {
 }
 
 .babypad {
-    padding: 5% 0;
+    padding: 2% 0;
 }
 
 .antipad {

@@ -35,14 +35,24 @@ const verificar = () => {
 
 };
 
-const carga = () => {
+const carga = async () => {
     localStorage.setItem('con', "0")
     const canvas = document.getElementById("Fumiga");
     const ctx = canvas.getContext("2d");
+    ctx.font = "60px Arial";
+    ctx.fillStyle = "#fff";
+    ctx.textAlign = "center";
+    ctx.fillText("Cargando...", 370, 100, 300);
+    await esperar(10000); // espera porque si no no cargan los png
     const img = new Image();
     img.src = "img/zero.png";
     ctx.drawImage(img, 0, 0);
+    document.getElementById('0').style.visibility = "visible";
+    document.getElementById('1').style.visibility = "hidden";
+    document.getElementById('2').style.visibility = "hidden";
 }
+
+const esperar = (tiempo) => new Promise((existo) => setTimeout(existo, tiempo))
 
 let imagen = (a) => {
     let n = parseInt(localStorage.getItem('con')) + a;
@@ -51,18 +61,31 @@ let imagen = (a) => {
     if (n < 0) {
         n = 2
     }
+    if (n > 2) {
+        n = 0;
+    }
+    canvas.width = canvas.width;
     const img = new Image();
     if (n === 0) {
         img.src = "img/zero.png";
-        localStorage.setItem('con', n)
+        document.getElementById('0').style.visibility = "visible";
+        document.getElementById('1').style.visibility = "hidden";
+        document.getElementById('2').style.visibility = "hidden";
+        ctx.drawImage(img, 0, 0);
     }
     if (n === 1) {
         img.src = "img/one.png";
-        localStorage.setItem('con', n)
+        document.getElementById('0').style.visibility = "hidden";
+        document.getElementById('1').style.visibility = "visible";
+        document.getElementById('2').style.visibility = "hidden";
+        ctx.drawImage(img, 84, -50);
     }
     if (n === 2) {
         img.src = "img/two.png";
-        localStorage.setItem('con', n)
+        document.getElementById('0').style.visibility = "hidden";
+        document.getElementById('1').style.visibility = "hidden";
+        document.getElementById('2').style.visibility = "visible";
+        ctx.drawImage(img, 0, 0);
     }
-    ctx.drawImage(img, 0, 0);
+    localStorage.setItem('con', n);
 }
