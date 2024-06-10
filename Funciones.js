@@ -71,7 +71,7 @@ const carga = async () => {
 
 const esperar = (tiempo) => new Promise((existo) => setTimeout(existo, tiempo))
 
-const imagen = (a) => {
+const imagen = async (a) => {
     let n = parseInt(localStorage.getItem('con')) + a;
     const canvas = document.getElementById("Fumiga");
     const ctx = canvas.getContext("2d");
@@ -82,8 +82,13 @@ const imagen = (a) => {
         n = 0;
     }
     canvas.width = canvas.width;
+    ctx.font = "60px Arial";
+    ctx.fillStyle = "#fff";
+    ctx.textAlign = "center";
+    ctx.fillText("Cargando...", 384, 200, 400);
     const img = new Image();
     if (n === 0) {
+        await EsperarImagen("img/zero.png");
         img.src = "img/zero.png";
         document.getElementById('0').style.visibility = "visible";
         document.getElementById('1').style.visibility = "hidden";
@@ -91,6 +96,7 @@ const imagen = (a) => {
         ctx.drawImage(img, 0, 0);
     }
     if (n === 1) {
+        await EsperarImagen("img/one.png");
         img.src = "img/one.png";
         document.getElementById('0').style.visibility = "hidden";
         document.getElementById('1').style.visibility = "visible";
@@ -98,6 +104,7 @@ const imagen = (a) => {
         ctx.drawImage(img, 84, -50);
     }
     if (n === 2) {
+        await EsperarImagen("img/two.png");
         img.src = "img/two.png";
         document.getElementById('0').style.visibility = "hidden";
         document.getElementById('1').style.visibility = "hidden";
