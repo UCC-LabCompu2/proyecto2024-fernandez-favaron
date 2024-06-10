@@ -43,6 +43,15 @@ const verificar = async () => {
 
 };
 
+const EsperarImagen = (src) => {
+    return new Promise((resolve, reject) => {
+        let img = new Image();
+        img.onload = () => resolve(img.height);
+        img.onerror = reject;
+        img.src = src;
+    });
+};
+
 const carga = async () => {
     localStorage.setItem('con', "0")
     const canvas = document.getElementById("Fumiga");
@@ -51,7 +60,7 @@ const carga = async () => {
     ctx.fillStyle = "#fff";
     ctx.textAlign = "center";
     ctx.fillText("Cargando...", 384, 200, 400);
-    await esperar(10000); // espera porque si no no cargan los png
+    await EsperarImagen("img/zero.png");
     const img = new Image();
     img.src = "img/zero.png";
     ctx.drawImage(img, 0, 0);
