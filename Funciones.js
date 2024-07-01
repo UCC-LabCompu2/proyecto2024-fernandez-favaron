@@ -39,11 +39,25 @@ const verificarMail = () => {
 }
 
 const verificarEdad = () => {
-    if (document.getElementById('input_edad').value < 18) {
-        document.getElementById('input_edad').value = "";
-        alert("No contratamos menores de edad")
-        document.getElementById('input_edad').style.backgroundColor = "red";
+    const inputEdad = document.getElementById('input_edad').value.trim();
 
+    if (inputEdad === "") {
+        alert("Ingrese su edad en el campo");
+        document.getElementById('input_edad').style.backgroundColor = "red";
+        return false;
+    }
+
+    if (isNaN(inputEdad)) {
+        alert("Ingrese un número válido para la edad");
+        document.getElementById('input_edad').style.backgroundColor = "red";
+        return false;
+    }
+
+    const edad = parseInt(inputEdad, 10);
+
+    if (edad < 18) {
+        alert("No contratamos menores de edad");
+        document.getElementById('input_edad').style.backgroundColor = "red";
         return false;
     } else {
         document.getElementById('input_edad').style.backgroundColor = "green";
@@ -52,9 +66,11 @@ const verificarEdad = () => {
 }
 
 const verificarTel = () => {
-    if (document.getElementById('input_tel').length < 4 || !document.getElementById('input_tel').value.match(/^[0-9]{1,3}[0-9]{1,4}$/)) {
+    const tel = document.getElementById('input_tel').value.trim();
+
+    if (tel.length < 4 || !tel.match(/^\+(?:[0-9] ?){6,14}[0-9]$/)) {
         document.getElementById('input_tel').value = "";
-        alert("Teléfono invalido")
+        alert("Teléfono inválido");
         document.getElementById('input_tel').style.backgroundColor = "red";
 
         return false;
@@ -63,6 +79,7 @@ const verificarTel = () => {
         return true;
     }
 }
+
 
 const verificar = async () => {
     let j = 0

@@ -29,19 +29,19 @@
         <div class="formg">
             <label for="input_nombre">Nombre:</label>
             <input type="text" id="input_nombre" placeholder="Ingrese su Nombre" class="formi" size="40" maxlength="24"
-                   required>
+                   required onchange="verificarNombre()">
         </div>
 
         <div class="formg">
             <label for="input_apellido">Apellido:</label>
             <input type="text" id="input_apellido" placeholder="Ingrese su Apellido" class="formi" size="40"
-                   maxlength="24" required>
+                   maxlength="24" required onchange="verificarApellido()">
         </div>
 
         <div class="formg">
             <label for="input_email">Email:</label>
             <input type="email" id="input_email" placeholder="Ingrese su email (opcional)" size="40" class="formi"
-                   maxlength="40">
+                   maxlength="40" onchange="verificarMail()">
         </div>
 
         <div class="formg">
@@ -60,13 +60,13 @@
         <div class="formg">
             <label for="input_edad">Edad:</label>
             <input type="number" id="input_edad" placeholder="Ingrese su Edad" class="formi" size="10" maxlength="2"
-                   required>
+                   required onchange="verificarEdad()">
         </div>
 
         <div class="formg">
             <label for="input_tel">Teléfono:</label>
-            <input type="number" id="input_tel" placeholder="Ingrese su telefono" maxlength="20" size="20" class="formi"
-                   required>
+            <input type="text" id="input_tel" placeholder="Ingrese su telefono" maxlength="20" size="20" class="formi"
+                   required onchange="verificarTel()">
         </div>
 
         <div class="formg">
