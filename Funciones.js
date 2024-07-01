@@ -245,5 +245,5 @@ const imagen = async (a) => {
         document.getElementById('2').style.visibility = "visible";
         ctx.drawImage(img, 0, 0);
     }
-    localStorage.setItem('con', n);
+    localStorage.setItem('con', n.toString());
 }
