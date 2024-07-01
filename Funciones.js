@@ -1,3 +1,8 @@
+/**
+ * Verifica que el nombre ingresado no contenga: la primera letra en minúscula, números y tenga más de 3 letras.
+ * @method verificarNombre
+ * @return {Boolean} - válido → true
+ */
 const verificarNombre = () => {
     const nombre = document.getElementById('input_nombre').value.trim();
 
@@ -25,7 +30,11 @@ const verificarNombre = () => {
     document.getElementById('input_nombre').style.backgroundColor = "green";
     return true;
 }
-
+/**
+ * Verifica que el apellido ingresado no contenga: la primera letra en minúscula, números y tenga más de 3 letras.
+ * @method verificarApellido
+ * @return {Boolean} - válido → true
+ */
 const verificarApellido = () => {
     if (document.getElementById('input_apellido').value.length < 3) {
         document.getElementById('input_apellido').value = "";
@@ -52,7 +61,11 @@ const verificarApellido = () => {
     document.getElementById('input_apellido').style.backgroundColor = "green";
     return true;
 }
-
+/**
+ * Verifica que el email sea válido, para esto mira que contenga algo@algo.algo
+ * @method verificarMail
+ * @return {Boolean} - valido => true
+ */
 const verificarMail = () => {
     const EmailValido = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (!document.getElementById('input_email').value.match(EmailValido)) {
@@ -66,6 +79,11 @@ const verificarMail = () => {
         return true;
     }
 }
+/**
+ * Verifica que la edad no este vacia, sea un número y sea mayor de 17
+ * @method verificarEdad
+ * @return {Boolean} - válido → true
+ */
 
 const verificarEdad = () => {
     const inputEdad = document.getElementById('input_edad').value.trim();
@@ -93,6 +111,11 @@ const verificarEdad = () => {
         return true;
     }
 }
+/**
+ * Verifica que el teléfono sea válido, acepta +.
+ * @method verificarTel
+ * @return {Boolean} - válido → true
+ */
 
 const verificarTel = () => {
     const tel = document.getElementById('input_tel').value.trim();
@@ -108,8 +131,10 @@ const verificarTel = () => {
         return true;
     }
 }
-
-
+/**
+ * Llama a cada metodo para verificar cada campo necesario, luego muestra un mensaje en caso de que todo este correcto y te redirecciona al index
+ * @method verificar
+ */
 const verificar = async () => {
     let j = 0
     if (!verificarNombre()) {
@@ -134,7 +159,12 @@ const verificar = async () => {
     }
 
 };
-
+/**
+ * Crea una promesa para esperar que cargue una imagen
+ * @method EsperarImagen
+ * @param {string} src - ubicación de la imagen
+ * @return {Promise} - Retorna una promesa para que la función que la llama espere a que cargue la imagen de la ubicación
+ */
 const EsperarImagen = (src) => {
     return new Promise((resolve, reject) => {
         const img = new Image();
@@ -143,7 +173,10 @@ const EsperarImagen = (src) => {
         img.src = src;
     });
 };
-
+/**
+ * Pone la primera imagen cuando carga la página y muestra su descripción
+ * @method carga
+ */
 const carga = async () => {
     localStorage.setItem('con', "0")
     const canvas = document.getElementById("Fumiga");
@@ -160,9 +193,18 @@ const carga = async () => {
     document.getElementById('1').style.visibility = "hidden";
     document.getElementById('2').style.visibility = "hidden";
 }
-
+/**
+ * Función que al ser llamada por otra la hace esperar el tiempo recibido mediante una promesa
+ * @method esperar
+ * @param {int} tiempo - La cantidad de tiempo que debe esperar
+ * @return {Promise} - Retorna una promesa que hace esperar a la función el tiempo recibido
+ */
 const esperar = (tiempo) => new Promise((existo) => setTimeout(existo, tiempo))
-
+/**
+ * Cambia la imagen y el texto que se muestra en pantalla.
+ * @method imagen
+ * @param {int} a - indica si debe cambiar de imagen hacia la izquierda o derecha.
+ */
 const imagen = async (a) => {
     let n = parseInt(localStorage.getItem('con')) + a;
     const canvas = document.getElementById("Fumiga");
