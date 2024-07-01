@@ -1,38 +1,84 @@
-const verificar = async () => {
-    const n = ""
-    let j = 0
+const verificarNombre = () => {
     if (document.getElementById('input_nombre').value.length < 3) {
-        document.getElementById('input_nombre').value = n;
+        document.getElementById('input_nombre').value = "";
         alert("Nombre invalido, tiene que ser mayor a dos letras")
         document.getElementById('input_nombre').style.backgroundColor = "red";
 
-        j = 1;
+        return false;
+    } else {
+        document.getElementById('input_nombre').style.backgroundColor = "green";
+        return true;
     }
+}
 
+const verificarApellido = () => {
     if (document.getElementById('input_apellido').value.length < 3) {
-        document.getElementById('input_apellido').value = n;
+        document.getElementById('input_apellido').value = "";
         alert("Apellido invalido, tiene que ser mayor a dos letras")
         document.getElementById('input_apellido').style.backgroundColor = "red";
-        j = 1;
-    }
-    let emailvalido = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (!document.getElementById('input_email').value.match(emailvalido)) {
-        document.getElementById('input_email').value = n;
-        alert("Email invalido, contiene caracteres invalidos")
-        document.getElementById('input_email').style.backgroundColor = "red";
-        j = 1;
-    }
 
+        return false;
+    } else {
+        document.getElementById('input_apellido').style.backgroundColor = "green";
+        return true;
+    }
+}
+
+const verificarMail = () => {
+    const EmailValido = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!document.getElementById('input_email').value.match(EmailValido)) {
+        document.getElementById('input_email').value = "";
+        alert("Email invalido, contiene caracteres no permitidos")
+        document.getElementById('input_email').style.backgroundColor = "red";
+
+        return false;
+    } else {
+        document.getElementById('input_email').style.backgroundColor = "green";
+        return true;
+    }
+}
+
+const verificarEdad = () => {
     if (document.getElementById('input_edad').value < 18) {
-        document.getElementById('input_edad').value = n;
+        document.getElementById('input_edad').value = "";
         alert("No contratamos menores de edad")
         document.getElementById('input_edad').style.backgroundColor = "red";
-        j = 1;
+
+        return false;
+    } else {
+        document.getElementById('input_edad').style.backgroundColor = "green";
+        return true;
     }
+}
+
+const verificarTel = () => {
     if (document.getElementById('input_tel').length < 4 || !document.getElementById('input_tel').value.match(/^[0-9]{1,3}[0-9]{1,4}$/)) {
-        document.getElementById('input_tel').value = n;
+        document.getElementById('input_tel').value = "";
         alert("Teléfono invalido")
         document.getElementById('input_tel').style.backgroundColor = "red";
+
+        return false;
+    } else {
+        document.getElementById('input_tel').style.backgroundColor = "green";
+        return true;
+    }
+}
+
+const verificar = async () => {
+    let j = 0
+    if (!verificarNombre()) {
+        j = 1;
+    }
+    if (!verificarApellido()) {
+        j = 1;
+    }
+    if (!verificarMail()) {
+        j = 1;
+    }
+    if (!verificarEdad()) {
+        j = 1;
+    }
+    if (!verificarTel()) {
         j = 1;
     }
     if (j === 0) {
