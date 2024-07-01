@@ -1,14 +1,29 @@
 const verificarNombre = () => {
-    if (document.getElementById('input_nombre').value.length < 3) {
-        document.getElementById('input_nombre').value = "";
-        alert("Nombre invalido, tiene que ser mayor a dos letras")
-        document.getElementById('input_nombre').style.backgroundColor = "red";
+    const nombre = document.getElementById('input_nombre').value.trim();
 
+    if (nombre.length < 3) {
+        document.getElementById('input_nombre').value = "";
+        alert("Nombre inválido, debe tener más de dos letras");
+        document.getElementById('input_nombre').style.backgroundColor = "red";
         return false;
-    } else {
-        document.getElementById('input_nombre').style.backgroundColor = "green";
-        return true;
     }
+
+    if (/\d/.test(nombre)) {
+        document.getElementById('input_nombre').value = "";
+        alert("Nombre inválido, no debe contener números");
+        document.getElementById('input_nombre').style.backgroundColor = "red";
+        return false;
+    }
+
+    if (nombre.charAt(0) !== nombre.charAt(0).toUpperCase()) {
+        document.getElementById('input_nombre').value = "";
+        alert("Nombre inválido, la primera letra debe estar en mayúscula");
+        document.getElementById('input_nombre').style.backgroundColor = "red";
+        return false;
+    }
+
+    document.getElementById('input_nombre').style.backgroundColor = "green";
+    return true;
 }
 
 const verificarApellido = () => {
@@ -18,10 +33,24 @@ const verificarApellido = () => {
         document.getElementById('input_apellido').style.backgroundColor = "red";
 
         return false;
-    } else {
-        document.getElementById('input_apellido').style.backgroundColor = "green";
-        return true;
     }
+
+    if (/\d/.test(document.getElementById('input_apellido').value)) {
+        document.getElementById('input_apellido').value = "";
+        alert("Nombre inválido, no debe contener números");
+        document.getElementById('input_apellido').style.backgroundColor = "red";
+        return false;
+    }
+
+    if (document.getElementById('input_apellido').value.charAt(0) !== document.getElementById('input_apellido').value.charAt(0).toUpperCase()) {
+        document.getElementById('input_apellido').value = "";
+        alert("Apellido inválido, la primera letra debe estar en mayúscula");
+        document.getElementById('input_apellido').style.backgroundColor = "red";
+        return false;
+    }
+
+    document.getElementById('input_apellido').style.backgroundColor = "green";
+    return true;
 }
 
 const verificarMail = () => {
