@@ -80,7 +80,7 @@ const verificarMail = () => {
     }
 }
 /**
- * Verifica que la edad no este vacia, sea un número y sea mayor de 17
+ * Verifica que la edad no este vaciá, sea un número y sea mayor de 17
  * @method verificarEdad
  * @return {Boolean} - válido → true
  */
@@ -132,7 +132,7 @@ const verificarTel = () => {
     }
 }
 /**
- * Llama a cada metodo para verificar cada campo necesario, luego muestra un mensaje en caso de que todo este correcto y te redirecciona al index
+ * Llama a cada método para verificar cada campo necesario, luego muestra un mensaje en caso de que to.do este correcto y te redirecciona al index
  * @method verificar
  */
 const verificar = async () => {
