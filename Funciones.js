@@ -1,5 +1,5 @@
 const verificar = async () => {
-    let n = ""
+    const n = ""
     let j = 0
     if (document.getElementById('input_nombre').value.length < 3) {
         document.getElementById('input_nombre').value = n;
@@ -45,7 +45,7 @@ const verificar = async () => {
 
 const EsperarImagen = (src) => {
     return new Promise((resolve, reject) => {
-        let img = new Image();
+        const img = new Image();
         img.onload = () => resolve(img.height);
         img.onerror = reject;
         img.src = src;
