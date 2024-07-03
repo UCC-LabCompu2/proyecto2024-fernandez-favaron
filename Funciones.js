@@ -186,12 +186,27 @@ const carga = async () => {
     ctx.textAlign = "center";
     ctx.fillText("Cargando...", 384, 200, 400);
     await EsperarImagen("img/zero.png");
+    await EsperarImagen("img/one.png");
+    await EsperarImagen("img/two.png");
     const img = new Image();
     img.src = "img/zero.png";
     ctx.drawImage(img, 0, 0);
-    document.getElementById('0').style.visibility = "visible";
-    document.getElementById('1').style.visibility = "hidden";
-    document.getElementById('2').style.visibility = "hidden";
+    ctx.fillStyle = '#000';
+    ctx.font = 'bold 18px Arial';
+    ctx.textAlign = 'left';
+    const lineas = [
+        'Modelo: 3250',
+        '30 metros de varal',
+        '3250 litros',
+        '9 cortes por sección',
+        'Piloto trimble',
+        '4×2',
+        'Motor Deutz',
+        'Cañería de acero inoxidable'
+    ];
+    for (let i = 0; i < lineas.length; i++) {
+        ctx.fillText(lineas[i], 0, 500 + (i * 25));
+    }
 }
 /**
  * Función que al ser llamada por otra la hace esperar el tiempo recibido mediante una promesa
@@ -200,17 +215,18 @@ const carga = async () => {
  * @return {Promise} - Retorna una promesa que hace esperar a la función el tiempo recibido
  */
 const esperar = (tiempo) => new Promise((existo) => setTimeout(existo, tiempo))
+
 /**
  * Cambia la imagen y el texto que se muestra en pantalla.
  * @method imagen
  * @param {int} a - indica si debe cambiar de imagen hacia la izquierda o derecha.
  */
-const imagen = async (a) => {
+const imagen = (a) => {
     let n = parseInt(localStorage.getItem('con')) + a;
     const canvas = document.getElementById("Fumiga");
     const ctx = canvas.getContext("2d");
     if (n < 0) {
-        n = 2
+        n = 2;
     }
     if (n > 2) {
         n = 0;
@@ -220,30 +236,98 @@ const imagen = async (a) => {
     ctx.fillStyle = "#fff";
     ctx.textAlign = "center";
     ctx.fillText("Cargando...", 384, 200, 400);
-    const img = new Image();
-    if (n === 0) {
-        await EsperarImagen("img/zero.png");
-        img.src = "img/zero.png";
-        document.getElementById('0').style.visibility = "visible";
-        document.getElementById('1').style.visibility = "hidden";
-        document.getElementById('2').style.visibility = "hidden";
-        ctx.drawImage(img, 0, 0);
+
+    let lineas, imgsrc, direccion;
+    switch (n) {
+        case 0:
+            lineas = [
+                'Modelo: 3250',
+                '30 metros de varal',
+                '3250 litros',
+                '9 cortes por sección',
+                'Piloto trimble',
+                '4×2',
+                'Motor Deutz',
+                'Cañería de acero inoxidable'
+            ];
+            imgsrc = "img/zero.png";
+            break;
+        case 1:
+            lineas = [
+                "Modelo: MAP II 3500",
+                "30 metros de varal",
+                "3500 litros",
+                "9 cortes por sección",
+                "Computadora de aplicación Muller",
+                "4×2",
+                "Motor Deutz",
+                "Cañería de acero inoxidable"
+            ];
+            imgsrc = "img/one.png";
+            break;
+        case 2:
+            lineas = [
+                "Modelo 4630",
+                "28 metros de baral",
+                "7 cortes por sección",
+                "Sensores de altura",
+                "Pantalla 4640",
+                "Tanque de plástico",
+                "Eductor",
+                "Rodado 380/80R38"
+            ];
+            imgsrc = "img/two.png";
+            break;
+        default:
+            break;
     }
-    if (n === 1) {
-        await EsperarImagen("img/one.png");
-        img.src = "img/one.png";
-        document.getElementById('0').style.visibility = "hidden";
-        document.getElementById('1').style.visibility = "visible";
-        document.getElementById('2').style.visibility = "hidden";
-        ctx.drawImage(img, 84, -50);
-    }
-    if (n === 2) {
-        await EsperarImagen("img/two.png");
-        img.src = "img/two.png";
-        document.getElementById('0').style.visibility = "hidden";
-        document.getElementById('1').style.visibility = "hidden";
-        document.getElementById('2').style.visibility = "visible";
-        ctx.drawImage(img, 0, 0);
-    }
+    direccion = a < 0 ? 'derecha' : 'izquierda';
+
     localStorage.setItem('con', n.toString());
+
+    animatedef(imgsrc, lineas, direccion);
 }
+
+/**
+ * Función que crea una animación para mostrar una foto y texto
+ * @method esperar
+ * @param {string} imgsrc - Cuál imagen debe cargar según su ubicación
+ * @param {string} lineas - El texto que debe aparecer abajo de la imagen
+ * @param {string} direccion - De qué dirección debe aparecer la imagen
+ */
+const animatedef = (imgsrc, lineas, direccion) => {
+    const canvas = document.getElementById("Fumiga");
+    const ctx = canvas.getContext("2d");
+    let x = direccion === 'izquierda' ? -canvas.width : canvas.width; // Iniciar desde la izquierda o derecha
+    const img = new Image();
+    img.src = imgsrc;
+
+    const dx = direccion === 'izquierda' ? 8 : -8; // Velocidad de desplazamiento
+    const textY = 500;
+
+    const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.drawImage(img, x, 0);
+
+        ctx.fillStyle = '#000';
+        ctx.font = 'bold 18px Arial';
+        ctx.textAlign = 'left';
+        for (let i = 0; i < lineas.length; i++) {
+            ctx.fillText(lineas[i], x, textY + (i * 25));
+        }
+
+        const anchoReal = img.width > 0 ? img.width : ctx.measureText(lineas[0]).width;
+
+        x += dx;
+
+        if ((direccion === 'izquierda' && x <= canvas.width / 2 - anchoReal / 2) ||
+            (direccion === 'derecha' && x >= canvas.width / 2 - anchoReal / 2)) {
+            requestAnimationFrame(animate);
+        }
+    };
+
+    img.onload = () => {
+        animate();
+    };
+};
