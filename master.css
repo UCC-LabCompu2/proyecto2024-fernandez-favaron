@@ -33,15 +33,6 @@ body {
     overflow: hidden;
 }
 
-#fix {
-    height: 20em;
-}
-
-.hidden {
-    visibility: hidden;
-    max-height: 0;
-}
-
 #right {
     margin-top: 100px;
     width: 15%;
