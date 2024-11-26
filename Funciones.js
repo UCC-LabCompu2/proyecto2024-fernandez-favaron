@@ -122,7 +122,7 @@ const verificarTel = () => {
 
     if (tel.length < 4 || !tel.match(/^\+(?:[0-9] ?){6,14}[0-9]$/)) {
         document.getElementById('input_tel').value = "";
-        alert("Teléfono inválido");
+        alert("Teléfono inválido, recuerde agregar el +54 o la característica que corresponda a su pais.");
         document.getElementById('input_tel').style.backgroundColor = "red";
 
         return false;
